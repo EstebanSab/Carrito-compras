@@ -2,11 +2,12 @@
   <div>
   <nav class="contenedor-menu">
     <ul class="contenedor-menu-ul">
-      <li><a routerLink="/inicio" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/inicio" routerLinkActive="active" (click)="verificarSesion()">Inicio</a></li>
       <li><a routerLink="/micarrito" routerLinkActive="active">Mi Carrito</a></li>
       <li><a routerLink="/favoritos" routerLinkActive="active">Favoritos</a></li>
       <li><a routerLink="/vender" routerLinkActive="active">Vender</a></li>
       <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li *ngIf="usuarioLogueado" (click)="cerrarSesion()">Desloguear</li>
     </ul>
   </nav>
 </div>

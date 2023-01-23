@@ -12,6 +12,7 @@ import { LoginViewComponent } from './login-view/login-view.component';
 import { ProductosFavoritosComponent } from './productos-favoritos/productos-favoritos.component';
 import { VenderProductoComponent } from './vender-producto/vender-producto.component';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
