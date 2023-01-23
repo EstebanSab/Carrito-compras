@@ -1,0 +1,24 @@
+
+.contenedor-layout{
+top: 0px;
+margin: 0px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px 1fr;
+}
+
+.contenedor-menu{
+
+ background-color: rgb(84, 84, 232);
+ height: 80px;
+}
+.contenedor-menu-ul{
+    background-color: rgb(84, 84, 232);
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-evenly;
+}
+a{
+    color: #000;
+}

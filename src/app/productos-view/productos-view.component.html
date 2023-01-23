@@ -1,0 +1,25 @@
+
+<div class="contenedor-layout">
+    <div class="contenedor-filtro">
+        <app-filtro-productos></app-filtro-productos>
+    </div>
+
+    <div class="contenedor-productos">
+        <ul class="contenedor-productos-ul">
+            <ng-template  ngFor let-elemento [ngForOf]="misProductos">
+                <li *ngIf="verificarCalidad(elemento.calidad)" >
+                    <app-producto  
+                        [nombreProducto]="elemento.nombre"
+                        [calidadProducto]="elemento.calidad" 
+                        [precioProducto]="elemento.precio"
+                        >
+                    </app-producto>
+                </li>
+            </ng-template>   
+             </ul>
+    </div>
+
+</div>
+
+     
+    

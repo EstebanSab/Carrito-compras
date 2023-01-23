@@ -1,0 +1,22 @@
+<div>
+    <form action="">
+        <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="nombre"
+        [(ngModel)]="nombreNuevo">
+    </div>
+
+    <div>
+        <label for="calidad">Calidad</label>
+        <input type="text" name="calidad" id="calidad" placeholder="calidad"
+        [(ngModel)]="calidadNuevo">
+    </div>
+
+    <div>
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" placeholder="precio"
+        [(ngModel)]="precioNuevo">
+    </div>
+    <button type="submit" (click)="agregarProducto()">Vender</button>
+    </form>
+</div>
