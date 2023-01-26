@@ -14,7 +14,7 @@ export class LoginService implements CanActivate{
     if(this.adminUsuario.estaLogueado()){
       return true;
     }else{
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       return false; 
     }
    

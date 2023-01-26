@@ -5,39 +5,62 @@ import { Injectable } from '@angular/core';
 })
 export class UsuariosService {
 private usuarios:any[]=[];
-private usuarioEstaLogueado:boolean=false;
-private usuarioActivo:any;
+private usuarioActivoId:number=-1;
+private idUsuarios =0;
 
   constructor() { }
 
 crearUsuario(nombre:string,contrasena:string){
   this.usuarios.push(
-    {nombre:nombre,
-    contrasena:contrasena
+    {id:this.idUsuarios++,
+      nombre:nombre,
+    contrasena:contrasena,
+    carrito:[],
+    favoritos:[],
+    logueado:false
     }
   )
 }
 
 iniciarSesion(nombre:string,contrasena:string){
-  let usuarioExiste= this.usuarios.find((user)=>{
-    return (user.nombre==nombre && user.contrasena==contrasena)
-  })
-  if(usuarioExiste){
-    this.usuarioEstaLogueado=true
-    this.usuarioActivo=usuarioExiste;
-    console.log(usuarioExiste);
+  
+  if( this.usuarioActual(nombre,contrasena)){
+    this.usuarioActual(nombre,contrasena).logueado=true
+    this.usuarioActivoId= this.usuarioActual(nombre,contrasena).id;
+
+    console.log(this.usuarioActual(nombre,contrasena))
   }else{
     alert("usuario no Existe");
   }
 }
 estaLogueado(){
-  return this.usuarioEstaLogueado;
+  return this.usuarioActivoId != -1;
 }
+
 cerrarSesion(){
-   this.usuarioEstaLogueado=false;
-   this.usuarioActivo={}
+  this.usuarioActualId(this.usuarioActivoId).logueado=false
+  this.usuarioActivoId = -1;
 }
 getData(){
-  return this.usuarioActivo
+  return this.usuarioActualId(this.usuarioActivoId)
+}
+
+usuarioActual(nombre:string,contrasena:string){
+  return this.usuarios.find((user)=>{
+    return (user.nombre==nombre && user.contrasena==contrasena)
+  })
+}
+
+usuarioActualId(id:number){
+  return this.usuarios.find((user)=>{
+    return (user.id==id)
+  })
+}
+
+setCarritoUsuario(producto:any){
+  this.usuarioActualId(this.usuarioActivoId).carrito.push(producto)
+}
+getCarritoUsuario(){
+ return this.usuarioActualId(this.usuarioActivoId).carrito
 }
 }

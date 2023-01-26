@@ -13,17 +13,10 @@ export class AppComponent{
   this.verificarSesion();
  }
  
-
  verificarSesion(){
   this.usuarioLogueado=this.adminUsuarios.estaLogueado();
  }
-
-
- ngOnChanges(){
-  this.usuarioLogueado=this.adminUsuarios.estaLogueado();
- }
-
-
+ 
  cerrarSesion(){
   this.adminUsuarios.cerrarSesion()
   this.verificarSesion()

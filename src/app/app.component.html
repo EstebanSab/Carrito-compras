@@ -4,7 +4,6 @@
     <ul class="contenedor-menu-ul" (click)="verificarSesion()">
       <li><a routerLink="/inicio" routerLinkActive="active" >Inicio</a></li>
       <li><a routerLink="/micarrito" routerLinkActive="active">Mi Carrito</a></li>
-      <li><a routerLink="/favoritos" routerLinkActive="active">Favoritos</a></li>
       <li><a routerLink="/vender" routerLinkActive="active">Vender</a></li>
       <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
       <li *ngIf="usuarioLogueado" (click)="cerrarSesion()">Desloguear</li>

@@ -1,1 +1,16 @@
-<p>mi-carrito-view works!</p>
+<div class="contenedor-productos">
+    <ul class="contenedor-productos-ul">
+        <ng-template  ngFor let-elemento [ngForOf]="misProductos">
+            <li >
+                <app-producto  
+                    [nombreProducto]="elemento.nombre"
+                    [calidadProducto]="elemento.calidad" 
+                    [precioProducto]="elemento.precio"
+                    [vendedorProducto]="elemento.vendedor"
+                    [idProducto]="elemento.id"
+                    >
+                </app-producto>
+            </li>
+        </ng-template>   
+         </ul>
+</div>

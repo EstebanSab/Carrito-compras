@@ -1,6 +1,12 @@
 
 <section>
+  <h2>Buscar</h2>
+  <label for="example-ngModel">buscar Producto</label>
+      <input [(ngModel)]="nombreProducto" id="example-ngModel" (keyup)="buscarProducto()">
     <form   novalidate>
+     
+      
+     
     <h2>Calidad</h2>
       <div *ngFor="let calidad of calidades; let i=index">
         <input type="checkbox"  [value]="calidad.value" (change)="onCheckboxChange($event)" 

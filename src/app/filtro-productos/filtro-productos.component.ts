@@ -8,6 +8,8 @@ import { ProductosService } from '../productos.service';
   styleUrls: ['./filtro-productos.component.css']
 })
 export class FiltroProductosComponent {
+  nombreProducto: string = '';
+
 
     calidades: Array<any> = [
     { name: 'bajo', value: 'bajo' },
@@ -41,6 +43,10 @@ cambioPrecio(event: any) {
   if (event.target.checked) {
     this.adminProductos.setPrecio(event.target.value);
   } 
-}
 
+  
+}
+buscarProducto(){
+  this.adminProductos.buscarProducto(this.nombreProducto)
+}
 }
