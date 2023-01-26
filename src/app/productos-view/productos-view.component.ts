@@ -14,8 +14,8 @@ constructor(private adminProductos:ProductosService){
 }
 
 
-verificarCalidad(calidad:string){
-  return this.adminProductos.verificarCalidad(calidad)
+verificarCalidadPrecio(productoFiltrar:any){
+  return this.adminProductos.verificarCalidadPrecio(productoFiltrar)
 }
 
 

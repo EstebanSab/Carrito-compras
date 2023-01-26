@@ -5,24 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class ProductosService {
 private productos:any[];
-private variableCalidad=false;
-private filtroCalidad="bajo";
+private calidadesFiltro:string[]=[];
+private precioFiltro:number=0;
 
   constructor() { 
     this.productos=[
-      {nombre:"harina",calidad:"alto",precio:12},
-      {nombre:"yerba",calidad:"bajo",precio:3},
-      {nombre:"cafe",calidad:"alto",precio:41},
-      {nombre:"azucar",calidad:"medio",precio:14},
-      {nombre:"sal",calidad:"bajo",precio:1},
+      {nombre:"harina",calidad:"alto",precio:12,vendedor:"user"},
+      {nombre:"yerba",calidad:"bajo",precio:3,vendedor:"user"},
+      {nombre:"cafe",calidad:"alto",precio:41,vendedor:"user"},
+      {nombre:"azucar",calidad:"medio",precio:14,vendedor:"user"},
+      {nombre:"sal",calidad:"bajo",precio:1,vendedor:"user"},
   ];
   }
 
-  agregarProducto(nombreNuevo:string,calidadNuevo:string,precioNuevo:number){
+  agregarProducto(nombreNuevo:string,calidadNuevo:string,precioNuevo:number,vendedorNuevo:string){
     this.productos.push({
         nombre:nombreNuevo,
         calidad:calidadNuevo,
-        precio:precioNuevo
+        precio:precioNuevo,
+        vendedor:vendedorNuevo
     })
   }
 
@@ -30,18 +31,35 @@ private filtroCalidad="bajo";
     return this.productos
   }
 
-  verificarCalidad(productoCalidad:string){
-    if(this.variableCalidad){
-        return  productoCalidad != this.filtroCalidad
-    }else{
-        return true
-    }
+  setCalidad(filtroCalidad:string){
+    this.calidadesFiltro.push(filtroCalidad);
+  }
+
+  removeCalidad(filtroCalidad:string){
+    this.calidadesFiltro = this.calidadesFiltro.filter(cal => cal!=filtroCalidad);
+  }
+
+  setPrecio(precio:number){
+    this.precioFiltro=precio;
   }
 
   
-  cambiarCalidad(){
-    this.variableCalidad =! this.variableCalidad
+
+  verificarCalidadPrecio(productoFiltrar:any){
+    if(this.calidadesFiltro.length == 0 ){
+      if(productoFiltrar.precio < this.precioFiltro || this.precioFiltro==0){
+          return true
+      }
+    }else if(this.calidadesFiltro.find((cal)=> cal==productoFiltrar.calidad)){
+      if(productoFiltrar.precio < this.precioFiltro || this.precioFiltro==0){
+        return true
+      }
+    }
+    return false;
   }
+
+  
+ 
 
 
 

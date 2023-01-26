@@ -9,4 +9,5 @@ export class ProductoComponent {
   @Input() nombreProducto='';
   @Input() precioProducto='';
   @Input() calidadProducto=0;
+  @Input() vendedorProducto='';
 }

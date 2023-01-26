@@ -15,7 +15,8 @@ const routes: Routes = [
   {path:'favoritos',
   component:ProductosFavoritosComponent,
   canActivate:[LoginService]},
-  {path:'vender',component:VenderProductoComponent}
+  {path:'vender',component:VenderProductoComponent,
+  canActivate:[LoginService]}
 ];
 
 @NgModule({

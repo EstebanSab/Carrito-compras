@@ -7,11 +7,12 @@
     <div class="contenedor-productos">
         <ul class="contenedor-productos-ul">
             <ng-template  ngFor let-elemento [ngForOf]="misProductos">
-                <li *ngIf="verificarCalidad(elemento.calidad)" >
+                <li *ngIf="verificarCalidadPrecio(elemento)" >
                     <app-producto  
                         [nombreProducto]="elemento.nombre"
                         [calidadProducto]="elemento.calidad" 
                         [precioProducto]="elemento.precio"
+                        [vendedorProducto]="elemento.vendedor"
                         >
                     </app-producto>
                 </li>

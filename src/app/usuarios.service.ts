@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class UsuariosService {
 private usuarios:any[]=[];
 private usuarioEstaLogueado:boolean=false;
+private usuarioActivo:any;
 
   constructor() { }
 
@@ -23,9 +24,10 @@ iniciarSesion(nombre:string,contrasena:string){
   })
   if(usuarioExiste){
     this.usuarioEstaLogueado=true
+    this.usuarioActivo=usuarioExiste;
     console.log(usuarioExiste);
   }else{
-    console.log("usuario no Existe");
+    alert("usuario no Existe");
   }
 }
 estaLogueado(){
@@ -33,5 +35,9 @@ estaLogueado(){
 }
 cerrarSesion(){
    this.usuarioEstaLogueado=false;
+   this.usuarioActivo={}
+}
+getData(){
+  return this.usuarioActivo
 }
 }

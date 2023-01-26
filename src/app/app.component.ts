@@ -10,7 +10,7 @@ export class AppComponent{
   usuarioLogueado:boolean=true;
 
  constructor(private adminUsuarios:UsuariosService){
-  this.usuarioLogueado=this.adminUsuarios.estaLogueado();
+  this.verificarSesion();
  }
  
 

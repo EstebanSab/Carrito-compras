@@ -1,1 +1,20 @@
-<button (click)="cambiarCalidad()">Ocultar Calidad Bajo</button>
+
+<section>
+    <form   novalidate>
+    <h2>Calidad</h2>
+      <div *ngFor="let calidad of calidades; let i=index">
+        <input type="checkbox"  [value]="calidad.value" (change)="onCheckboxChange($event)" 
+        />
+        {{ calidad.name}}
+      </div>
+
+      <br/><br/><br/>
+      <h2>Precios</h2>
+      <div *ngFor="let precio of precios; let i=index">
+        <input type="radio"  [value]="precio.value" name="precio" (change)="cambioPrecio($event)" 
+        />
+       {{ precio.valor}}
+      </div>
+      
+    </form>
+  </section>
