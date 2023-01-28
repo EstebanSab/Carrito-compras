@@ -8,7 +8,10 @@
 .contenedor-productos-ul{
     list-style-type: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill,250px);
     grid-template-rows: auto;
-    gap: 20px;
+   
+    
+    gap: 15px;
 }
+

@@ -1,5 +1,5 @@
 <div class="contenedor-layout">
-  <div>
+  
   <nav class="contenedor-menu">
     <ul class="contenedor-menu-ul" (click)="verificarSesion()">
       <li><a routerLink="/inicio" routerLinkActive="active" >Inicio</a></li>
@@ -9,7 +9,6 @@
       <li *ngIf="usuarioLogueado" (click)="cerrarSesion()">Desloguear</li>
     </ul>
   </nav>
-</div>
   <div><router-outlet></router-outlet></div>
 </div>
 

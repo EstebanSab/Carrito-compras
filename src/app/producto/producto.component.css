@@ -1,3 +1,12 @@
 .contenedor-producto{
     border: 2px solid blue;
+    text-align:center;
+    height: 200;
+}
+
+.nombre-producto{
+  font-size: 25px;
+}
+.calidad-producto{
+    font-size: 18px;
 }
