@@ -23,7 +23,7 @@ crearUsuario(){
 }
 iniciarSesion(){
   this.adminUsuario.iniciarSesion(this.nombreUsuarioNuevo,this.contrasenaUsuarioNuevo);
-  this.usuarioLogueado=this.adminUsuario.estaLogueado();
+  this.usuarioLogueado=this.adminUsuario.estaLogueadoComun();
   console.log("variable usuario logueado"+this.usuarioLogueado);
 }
 }

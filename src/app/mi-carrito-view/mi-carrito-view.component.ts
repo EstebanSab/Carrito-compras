@@ -9,17 +9,23 @@ import { UsuariosService } from '../usuarios.service';
 })
 export class MiCarritoViewComponent {
   misProductos:any;
+  private  usuarioLogueado:Boolean = true
 
   constructor(private adminUsuario:UsuariosService){
     this.setProductos();
   }
 
   setProductos(){
-    if(this.adminUsuario.estaLogueado()){
+    if(this.usuarioLogueado){
       this.misProductos=this.adminUsuario.getCarritoUsuario()
     }else{
       alert("debes iniciar sesion para ver tu carrito")
     }
     
+  }
+  ngOnInit(): void {
+    this.adminUsuario.getEstaLogueado$().subscribe(valor =>{
+      this.usuarioLogueado = valor;
+    });
   }
 }

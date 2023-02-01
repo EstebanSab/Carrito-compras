@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,14 @@ export class UsuariosService {
 private usuarios:any[]=[];
 private usuarioActivoId:number=-1;
 private idUsuarios =0;
+//Observable
+private estaLogueado$:Subject<boolean>
 
-  constructor() { }
+  constructor() {
+    //observable
+    this.estaLogueado$ = new Subject();
+    this.estaLogueado$.next((this.usuarioActivoId != -1)); this.estaLogueado$.next(false);
+   }
 
 crearUsuario(nombre:string,contrasena:string){
   this.usuarios.push(
@@ -26,20 +33,30 @@ iniciarSesion(nombre:string,contrasena:string){
   
   if( this.usuarioActual(nombre,contrasena)){
     this.usuarioActual(nombre,contrasena).logueado=true
+  
+  
     this.usuarioActivoId= this.usuarioActual(nombre,contrasena).id;
+
+      //observable
+      this.estaLogueado$.next((this.usuarioActivoId != -1));
 
     console.log(this.usuarioActual(nombre,contrasena))
   }else{
     alert("usuario no Existe");
   }
 }
-estaLogueado(){
-  return this.usuarioActivoId != -1;
+getEstaLogueado$():Observable<boolean>{
+  return this.estaLogueado$.asObservable();
 }
+
+//private getEstaLogueado():boolean{
+//  return this.estaLogueado$.asObservable();
+//}
 
 cerrarSesion(){
   this.usuarioActualId(this.usuarioActivoId).logueado=false
   this.usuarioActivoId = -1;
+  this.estaLogueado$.next((this.usuarioActivoId != -1));
 }
 getData(){
   return this.usuarioActualId(this.usuarioActivoId)
@@ -62,5 +79,8 @@ setCarritoUsuario(producto:any){
 }
 getCarritoUsuario(){
  return this.usuarioActualId(this.usuarioActivoId).carrito
+}
+estaLogueadoComun(){
+  return this.usuarioActivoId != -1
 }
 }

@@ -11,7 +11,7 @@ export class LoginService implements CanActivate{
   constructor(private router:Router,private adminUsuario:UsuariosService) { }
   
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(this.adminUsuario.estaLogueado()){
+    if(this.adminUsuario.estaLogueadoComun()){
       return true;
     }else{
       this.router.navigate(['/login']);
