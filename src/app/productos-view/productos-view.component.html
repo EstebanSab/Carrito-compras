@@ -9,10 +9,10 @@
             <ng-template  ngFor let-elemento [ngForOf]="misProductos">
                 <li *ngIf="verificarCalidadPrecio(elemento)" >
                     <app-producto  
-                        [nombreProducto]="elemento.nombre"
-                        [calidadProducto]="elemento.calidad" 
-                        [precioProducto]="elemento.precio"
-                        [vendedorProducto]="elemento.vendedor"
+                        [nombreProducto]="elemento.name"
+                        [calidadProducto]="elemento.status" 
+                        [precioProducto]="elemento.species"
+                        [vendedorProducto]="elemento.type"
                         [idProducto]="elemento.id"
                         >
                     </app-producto>
