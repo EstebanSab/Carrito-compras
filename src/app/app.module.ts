@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductosViewComponent } from './productos-view/productos-view.component';
 import { ProductoComponent } from './producto/producto.component';
-import { MiCarritoViewComponent } from './mi-carrito-view/mi-carrito-view.component';
+import { PokemonViewComponent } from './pokemon-view/pokemon-view.component';
 import { FiltroProductosComponent } from './filtro-productos/filtro-productos.component';
 import { LoginViewComponent } from './login-view/login-view.component';
 import { VenderProductoComponent } from './vender-producto/vender-producto.component';
@@ -18,7 +18,7 @@ import { LoginService } from './login.service';
     AppComponent,
     ProductosViewComponent,
     ProductoComponent,
-    MiCarritoViewComponent,
+    PokemonViewComponent,
     FiltroProductosComponent,
     LoginViewComponent,
     VenderProductoComponent

@@ -8,11 +8,12 @@ import { UsuariosService } from '../usuarios.service';
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent implements OnInit{
-  @Input() nombreProducto='';
-  @Input() precioProducto='';
-  @Input() calidadProducto=0;
-  @Input() vendedorProducto='';
-  @Input() idProducto=0;
+  @Input() nombrePersonaje='';
+  @Input() statusPersonaje='';
+  @Input() speciePersonaje='';
+  @Input() typePersonaje='';
+  @Input() idPersonaje=0;
+  @Input() imagenPersonaje='';
   private  usuarioLogueado:Boolean = true
 
   constructor(private adminProductos:ProductosService,private adminUsuario:UsuariosService){}

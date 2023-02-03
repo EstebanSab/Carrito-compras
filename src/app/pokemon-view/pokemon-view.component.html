@@ -1,0 +1,17 @@
+<div class="contenedor-productos">
+    <ul class="contenedor-productos-ul">
+        <ng-template  ngFor let-elemento [ngForOf]="misPokemon">
+            <li >
+                <app-producto  
+                        [nombrePersonaje]="elemento.name"
+                        [statusPersonaje]="elemento.status" 
+                        [speciePersonaje]="elemento.species"
+                        [typePersonaje]="elemento.type"
+                        [idPersonaje]="elemento.id"
+                        [imagenPersonaje]="elemento.image"
+                        >
+                    </app-producto>
+            </li>
+        </ng-template>   
+         </ul>
+</div>
